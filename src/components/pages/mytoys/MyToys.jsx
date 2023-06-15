@@ -21,7 +21,8 @@ const MyToys = () => {
             try {
                 const response = await fetch(`https://toy-bazar-server-red.vercel.app/add/sort/${sortingOrder}`);
                 const data = await response.json();
-                setToys(data);
+                const x = data.filter(item => item.sellerEmail === user.email);;
+                setToys(x);
             } catch (error) {
                 console.log(error);
             }
